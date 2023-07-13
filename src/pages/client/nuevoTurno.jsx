@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../../context/authContext'
 import { db } from '../../utils/firebaseconfig'
 import { doc, updateDoc, getDoc } from 'firebase/firestore'
@@ -16,7 +16,6 @@ import PantallaTurnoConfirmado from '../../components/client/turnos/pantallaTurn
 import { v4 as uuidv4 } from "uuid";
 
 import PantallaCargando from '../../components/utils/pantallaCargando'
-import { isLastDayOfMonth } from 'date-fns'
 
 export default function NuevoTurno() {
   // context
@@ -26,7 +25,7 @@ export default function NuevoTurno() {
 
   //Formulario paso a paso
 
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(0)
   // step datos personales
   const [nombre, setNombre] = useState('')
   const [telefono, setTelefono] = useState('')
@@ -61,7 +60,7 @@ export default function NuevoTurno() {
       case 2:
         return <StepProfesional profesionalSeleccionado={profesionalSeleccionado} setProfesionalSeleccionado={setProfesionalSeleccionado} />
       case 3:
-        return <StepfechaYHora fechaSeleccionada={fechaSeleccionada} setFechaSeleccionada={setFechaSeleccionada} />
+        return <StepfechaYHora fechaSeleccionada={fechaSeleccionada}  setFechaSeleccionada={setFechaSeleccionada} servicioSeleccionado={servicioSeleccionado} />
       default:
         return <StepDatosPersonales nombre={nombre} setNombre={setNombre} telefono={telefono} setTelefono={setTelefono} />
     }
