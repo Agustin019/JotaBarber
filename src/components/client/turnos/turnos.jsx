@@ -15,7 +15,7 @@ export default function Turnos({
   diaAbreviado,
   objetoDiaSeleccionado
 }) {
-  const fechaFormateada = format(selectedDay, "EEEE dd-MM", { locale: es });  
+  const fechaFormateada = format(selectedDay, "EEEE dd-MM", { locale: es } );  
   return (
     <div>
     {
