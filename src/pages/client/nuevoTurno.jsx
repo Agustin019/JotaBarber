@@ -60,7 +60,7 @@ export default function NuevoTurno() {
       case 2:
         return <StepProfesional profesionalSeleccionado={profesionalSeleccionado} setProfesionalSeleccionado={setProfesionalSeleccionado} />
       case 3:
-        return <StepfechaYHora fechaSeleccionada={fechaSeleccionada} setFechaSeleccionada={setFechaSeleccionada} />
+        return <StepfechaYHora fechaSeleccionada={fechaSeleccionada}  setFechaSeleccionada={setFechaSeleccionada} servicioSeleccionado={servicioSeleccionado} />
       default:
         return <StepDatosPersonales nombre={nombre} setNombre={setNombre} telefono={telefono} setTelefono={setTelefono} />
     }

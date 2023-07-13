@@ -11,7 +11,7 @@ import {
 from '../../../utils/horariosLaborales'
 
 
-export default function StepFechaYHora({ fechaSeleccionada, setFechaSeleccionada }) {
+export default function StepFechaYHora({ fechaSeleccionada, setFechaSeleccionada, servicioSeleccionado }) {
   const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
   const [startDay, setStartDay] = useState(new Date());
@@ -154,6 +154,7 @@ export default function StepFechaYHora({ fechaSeleccionada, setFechaSeleccionada
         setPeriodoTurno={setPeriodoTurno}
         filtrarTurnosPorPeriodo={filtrarTurnosPorPeriodo}
         selectedDay={selectedDay}
+        servicioSeleccionado={servicioSeleccionado}
         fechaSeleccionada={fechaSeleccionada}
         setFechaSeleccionada={setFechaSeleccionada}
         diaAbreviado={diaAbreviado}
