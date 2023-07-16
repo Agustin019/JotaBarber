@@ -29,15 +29,24 @@ export default function TurnosAdmin() {
     const consultarTurnos = () => {
         const docRef = doc(db, 'Turnos', fechaFormateada)
         const unsubscribe = onSnapshot(docRef, (snapshot) => {
-            setTurnos(snapshot.data().turnos)
-        })
+            // Obtener los datos del documento
+            const datosDelDocumento = snapshot.data().turnos;
+            // Ordenar los turnos por la hora utilizando la función compararHoras
+            const turnosOrdenados = datosDelDocumento.sort(compararHoras);
+            // Actualizar el estado con los turnos ordenados
+            setTurnos(turnosOrdenados);
+          });
         console.log(turnos)
         return () => {
             unsubscribe()
         }
     }
 
-
+    const compararHoras = (a, b) => {
+        const horaA = a.hora;
+        const horaB = b.hora;
+        return horaA.localeCompare(horaB, 'es', { numeric: true });
+    };
 
     useEffect(() => {
         consultarTurnos();
